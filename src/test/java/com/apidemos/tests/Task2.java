@@ -84,9 +84,15 @@ public class Task2 {
 
         click(xpathOfText("People Names"));
 
+//        String displayed = david.getAttribute("displayed");
+//        System.out.println("displayed = " + displayed);
+
+
         Boolean arnold1 = wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathOfText("Arnold")));
         Assert.assertTrue(arnold1);
         Boolean barry1 = wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathOfText("Barry")));
+        Boolean until = wait.until(ExpectedConditions.invisibilityOf(barry));
+        System.out.println("until = " + until);
         Assert.assertTrue(barry1);
         Boolean chuck1 = wait.until(ExpectedConditions.invisibilityOfElementLocated(xpathOfText("Chuck")));
         Assert.assertTrue(chuck1);
@@ -101,6 +107,9 @@ public class Task2 {
         List<MobileElement> names = driver.findElements(By.className("android.widget.TextView"));
 
         Assert.assertEquals(names.get(5).getText(),"Bubbles");
+
+        String actual=driver.findElement(By.xpath("//*[@class='android.widget.TextView'][6]")).getText();
+        Assert.assertEquals(actual,"Bubbles");
 
 
     }
