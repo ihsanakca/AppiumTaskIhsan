@@ -1,6 +1,11 @@
 package utils;
 
 public enum Device {
+
+    PIXEL2("emulator-5554",
+            "11",
+            "Pixel2",
+            "Android"),
     Redmi_Note_8(
             "3c7eb8",
             "12",
