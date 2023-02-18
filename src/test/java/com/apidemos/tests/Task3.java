@@ -68,15 +68,19 @@ public class Task3 {
         click(xpathOfText("Views"));
         swipeUntil(xpathOfText("TextSwitcher"), .6, .2);
         click(xpathOfText("TextSwitcher"));
+
         Random rd=new Random();
         int expected= rd.nextInt(10)+10;
         System.out.println("expected = " + expected);
-        int actual=Integer.parseInt(driver.findElement(By.className("android.widget.TextView")).getText());
+       int actual=0;
         for (int i = 0; i <expected ; i++) {
             if (actual!=expected){
                 click(xpathOfText("NEXT"));
             }
+            actual=Integer.parseInt(driver.findElement(By.className("android.widget.TextView")).getText());
         }
+        System.out.println("actual = " + actual);
+        Assert.assertEquals(actual,expected);
         driver.navigate().back();
     }
 
